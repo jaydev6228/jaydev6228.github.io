@@ -109,7 +109,7 @@
   .job .when { color: var(--muted); font-size: 13px; padding-top: 3px; }
   .job h3 { font-size: 18px; }
   .job .org { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-  .job ul { padding-left: 18px; color: var(--muted); font-size: 15px; }
+  .job ul { padding-left: 18px; color: var(--muted); font-size: 15px; margin-bottom: 12px; }
   .job li { margin: 4px 0; }
   @media (max-width: 640px) { .job { grid-template-columns: 1fr; gap: 4px; } }
 
@@ -212,45 +212,100 @@
 <section id="experience">
   <div class="wrap">
     <div class="label">Experience</div>
-    <h2>Where I've worked</h2>
+    <h2>Experience &amp; education</h2>
 
     <div class="job">
       <div class="when mono">Sep 2023 — Aug 2026</div>
       <div>
         <h3>Senior iOS Engineer</h3>
-        <div class="org">Rakuten Group · Rakuten Kakeibo · via Randstad Japan · Tokyo</div>
+        <div class="org">Rakuten Group · Rakuten Kakeibo · contract via Randstad Japan · Tokyo · team of 4 iOS</div>
         <ul>
-          <li>Full-cycle work on a personal finance app with millions of users: specs, coding, unit tests and releases.</li>
-          <li>Covered the team lead role for about six months — estimation, sprint planning, QA and release management — with no release delays.</li>
-          <li>Built bank and card data sync, including the hard cases: partial syncs, failed refreshes and mismatches.</li>
-          <li>Kept data-heavy screens fast with Instruments; code reviews, refactoring and mentoring junior engineers.</li>
+          <li>Full-cycle work on a personal finance app with millions of users: specs, design, coding, unit tests and App Store releases.</li>
+          <li>Covered the team lead role for about six months — requirements, estimation, sprint planning, QA and release management — with no release delays.</li>
+          <li>Built bank and card data sync, including the hard cases: partial syncs, failed refreshes and data mismatches.</li>
+          <li>Integrated deep links and analytics (Firebase, Adjust) and kept data-heavy screens fast with Instruments.</li>
+          <li>Code reviews, refactoring, Bitrise CI, and mentoring junior engineers.</li>
         </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">UIKit</span><span class="tag">SwiftUI</span><span class="tag">Combine</span><span class="tag">MVVM</span><span class="tag">Clean Architecture</span><span class="tag">XCTest</span><span class="tag">Bitrise</span></div>
       </div>
     </div>
 
     <div class="job">
-      <div class="when mono">Feb 2020 — Aug 2023</div>
+      <div class="when mono">Apr 2021 — Aug 2023</div>
       <div>
-        <h3>Senior iOS Developer · Team Lead</h3>
-        <div class="org">VeBuIn Corporation · Tsukuba, Japan · onsite for JERA and Right-On</div>
+        <h3>Senior iOS Engineer · Team Lead</h3>
+        <div class="org">VeBuIn Corporation · JERA (power company) · onsite, Japan · team of 8</div>
         <ul>
-          <li>Led iOS delivery on an 8-person team and also covered the backend and QA leads.</li>
+          <li>Led iOS delivery for task, site-access and equipment management apps, and also led the backend and QA teams.</li>
           <li>Cut the crash rate by about 20% in six months with memory profiling, leak fixes and new tests.</li>
-          <li>Reduced an API's response time from 8 seconds to 2 with client caching and backend fixes.</li>
-          <li>Built in-house CocoaPods libraries, Azure DevOps CI/CD pipelines, and BI tooling that saved the client ~25% in operational costs.</li>
+          <li>Reduced API response time by 75% (8 seconds → 2) with Rails fixes and client-side caching.</li>
+          <li>Built Azure DevOps CI/CD pipelines and in-house CocoaPods libraries to modularize shared code.</li>
         </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">MVVM</span><span class="tag">Ruby on Rails</span><span class="tag">PostgreSQL</span><span class="tag">Azure DevOps</span><span class="tag">Fastlane</span></div>
       </div>
     </div>
 
     <div class="job">
-      <div class="when mono">Dec 2015 — Feb 2020</div>
+      <div class="when mono">Feb 2020 — Mar 2021</div>
       <div>
-        <h3>iOS Developer</h3>
-        <div class="org">ThinkBiz Technology · WebPixel Technologies · SMN Digital Consultancy — Ahmedabad, India</div>
+        <h3>Senior iOS Engineer</h3>
+        <div class="org">VeBuIn Corporation · Right-On (fashion retail) · onsite, Japan</div>
         <ul>
-          <li>Daihatsu driver-safety feature using iBeacon and BLE, with a voice-activated emergency call.</li>
-          <li>Shipped five App Store apps, including CrewDox, an offline-first training and compliance app.</li>
-          <li>Home automation app controlling lights, AC and media over UDP.</li>
+          <li>Moved to Japan to join VeBuIn, a group company of ThinkBiz Technology.</li>
+          <li>UI/UX and app design, development, testing and release of the Right-On iOS app.</li>
+          <li>Built an inventory BI tool that cut operational costs by 25%. Delivered on schedule.</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">MVVM</span><span class="tag">XCTest</span><span class="tag">Firebase</span><span class="tag">VBA</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">Dec 2018 — Feb 2020</div>
+      <div>
+        <h3>iOS Engineer</h3>
+        <div class="org">ThinkBiz Technology · Ahmedabad, India</div>
+        <ul>
+          <li>Daihatsu drive app: iBeacon emergency-response system reading heart-rate data from beacon devices, with voice-activated emergency calls.</li>
+          <li>SmartFlow, an HR workflow automation app on the App Store that cut manual work by 50%.</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">MVC</span><span class="tag">BLE</span><span class="tag">iBeacon</span><span class="tag">Core Data</span><span class="tag">Firebase</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">Feb 2017 — Dec 2018</div>
+      <div>
+        <h3>iOS Engineer</h3>
+        <div class="org">WebPixel Technologies · Ahmedabad, India</div>
+        <ul>
+          <li>Shipped five App Store apps: travel and hotel booking, artist booking with chat, a QR rewards app and more.</li>
+          <li>A travel booking app passed 50,000+ downloads on the App Store.</li>
+          <li>CrewDox 1.0: offline-first training and compliance app for places with unreliable network.</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">MVC</span><span class="tag">REST APIs</span><span class="tag">SQLite</span><span class="tag">Offline-first</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">Dec 2015 — Feb 2017</div>
+      <div>
+        <h3>iOS Engineer</h3>
+        <div class="org">SMN Digital Consultancy · Ahmedabad, India</div>
+        <ul>
+          <li>First iOS job. Built 6+ educational apps for elementary school children.</li>
+          <li>Smart G4 home automation app: controlled lights, AC and media from the iPhone over UDP.</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">MVC</span><span class="tag">UDP sockets</span><span class="tag">IoT</span><span class="tag">SQLite</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">2009 — 2012</div>
+      <div>
+        <h3>Bachelor of Computer Applications</h3>
+        <div class="org">Gujarat Technological University · Ahmedabad, India</div>
+        <ul>
+          <li>Languages: English (business level), Japanese (JLPT N4, studying for N3), Hindi and Gujarati (native).</li>
         </ul>
       </div>
     </div>
