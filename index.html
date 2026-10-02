@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jaydev — Senior iOS Engineer</title>
+<meta name="description" content="Jaydev — Senior iOS / Mobile Engineer in Japan. 10+ years building Swift, SwiftUI and UIKit apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --text: #16181d;
+    --muted: #5b6270;
+    --line: #e4e4e0;
+    --accent: #ff5a1f;
+    --accent-soft: #fff0e9;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --surface: #171a21;
+      --text: #eef0f4;
+      --muted: #9aa2b1;
+      --line: #262a33;
+      --accent: #ff7a45;
+      --accent-soft: #2a1a12;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  nav .logo { font-weight: 700; text-decoration: none; }
+  nav .logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 22px; list-style: none; font-size: 14px; }
+  nav ul a { text-decoration: none; color: var(--muted); }
+  nav ul a:hover { color: var(--text); }
+  @media (max-width: 560px) { nav ul { display: none; } }
+
+  /* Hero */
+  .hero { padding: 96px 0 72px; }
+  .status {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; padding: 6px 12px; border-radius: 99px;
+    background: var(--accent-soft); color: var(--accent); font-weight: 500;
+  }
+  .status::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
+    box-shadow: 0 0 0 3px color-mix(in srgb, #22c55e 25%, transparent);
+  }
+  .hero h1 {
+    font-size: clamp(38px, 7vw, 64px); line-height: 1.05;
+    letter-spacing: -0.03em; margin: 22px 0 18px; font-weight: 700;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p.lead { font-size: 19px; color: var(--muted); max-width: 620px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .btn {
+    display: inline-block; padding: 12px 20px; border-radius: 10px;
+    text-decoration: none; font-weight: 600; font-size: 15px;
+    border: 1px solid var(--line); background: var(--surface);
+    transition: transform .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 56px;
+  }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .stat b { display: block; font-size: 28px; letter-spacing: -0.02em; }
+  .stat small { color: var(--muted); font-size: 13px; }
+  @media (max-width: 560px) { .stats { grid-template-columns: 1fr; } }
+
+  /* Sections */
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  h2 { font-size: 30px; letter-spacing: -0.02em; margin: 8px 0 28px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .skill-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .skill-card h3 { font-size: 15px; margin-bottom: 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 12.5px; padding: 4px 10px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); }
+
+  /* Timeline */
+  .job { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px dashed var(--line); }
+  .job:last-child { border-bottom: 0; }
+  .job .when { color: var(--muted); font-size: 13px; padding-top: 3px; }
+  .job h3 { font-size: 18px; }
+  .job .org { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+  .job ul { padding-left: 18px; color: var(--muted); font-size: 15px; }
+  .job li { margin: 4px 0; }
+  @media (max-width: 640px) { .job { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .project {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .project .icon {
+    width: 44px; height: 44px; border-radius: 11px; display: grid; place-items: center;
+    background: var(--accent-soft); color: var(--accent); font-weight: 700;
+  }
+  .project h3 { font-size: 17px; }
+  .project p { color: var(--muted); font-size: 14.5px; flex: 1; }
+
+  /* Contact */
+  .contact { text-align: center; padding: 80px 0; }
+  .contact h2 { font-size: clamp(28px, 5vw, 40px); }
+  .contact p { color: var(--muted); max-width: 520px; margin: 0 auto 28px; }
+  .contact .cta { justify-content: center; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px 0 40px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo mono">jaydev<span>.swift</span></a>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <span class="status">Open to work — available now</span>
+  <h1>Senior iOS Engineer<br>building apps people <em>trust</em>.</h1>
+  <p class="lead">I'm Jaydev, a mobile engineer based in Tsukuba, Japan. For 10+ years I have built and shipped iOS apps with Swift, SwiftUI and UIKit — from finance apps at scale to offline-first enterprise tools.</p>
+  <div class="cta">
+    <a class="btn primary" href="#contact">Get in touch</a>
+    <a class="btn" href="https://github.com/jaydev6228">GitHub</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>10+</b><small>years in mobile development</small></div>
+    <div class="stat"><b>6+</b><small>years working in Japan</small></div>
+    <div class="stat"><b>iOS</b><small>Swift · SwiftUI · UIKit · Obj-C</small></div>
+  </div>
+</header>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="label">Skills</div>
+    <h2>What I work with</h2>
+    <div class="skills">
+      <div class="skill-card">
+        <h3>Languages &amp; UI</h3>
+        <div class="tags">
+          <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">UIKit</span><span class="tag">Objective-C</span><span class="tag">Flutter</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Architecture</h3>
+        <div class="tags">
+          <span class="tag">MVVM</span><span class="tag">MVC</span><span class="tag">Offline-first</span><span class="tag">Modular apps</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>CI/CD &amp; Tools</h3>
+        <div class="tags">
+          <span class="tag">Fastlane</span><span class="tag">Bitrise</span><span class="tag">Azure DevOps</span><span class="tag">Git</span><span class="tag">Xcode</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Device &amp; Hardware</h3>
+        <div class="tags">
+          <span class="tag">BLE</span><span class="tag">iBeacon</span><span class="tag">iPad apps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="label">Experience</div>
+    <h2>Where I've worked</h2>
+
+    <div class="job">
+      <div class="when mono">2023 — 2026</div>
+      <div>
+        <h3>Senior Mobile Engineer</h3>
+        <div class="org">Rakuten · Kakeibo personal finance app (via Randstad Japan)</div>
+        <ul>
+          <li>Built and maintained features for a large-scale personal finance iOS app.</li>
+          <li>Worked with Swift, SwiftUI and UIKit in a Japanese product team.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">2020 — 2023</div>
+      <div>
+        <h3>Lead iOS Engineer</h3>
+        <div class="org">VeBuIn · Japan</div>
+        <ul>
+          <li>Led iOS development onsite for client apps including JERA and Right-On.</li>
+          <li>Owned architecture, code review and release pipelines.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">Earlier</div>
+      <div>
+        <h3>iOS Developer</h3>
+        <div class="org">ThinkBiz Technology · WebPixel · SMN Digital — India</div>
+        <ul>
+          <li>Daihatsu emergency app using BLE and iBeacon.</li>
+          <li>CrewDox — offline-first iPad app for pilot training.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="label">Projects</div>
+    <h2>Selected work</h2>
+    <div class="projects">
+      <div class="project">
+        <div class="icon">¥</div>
+        <h3>Kakeibo — Rakuten</h3>
+        <p>Personal finance app for budgeting and expense tracking, used by many users in Japan.</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">UIKit</span></div>
+      </div>
+      <div class="project">
+        <div class="icon">✈</div>
+        <h3>CrewDox</h3>
+        <p>Offline-first iPad app for pilot training. Works fully without network and syncs later.</p>
+        <div class="tags"><span class="tag">iPad</span><span class="tag">Offline sync</span></div>
+      </div>
+      <div class="project">
+        <div class="icon">⌁</div>
+        <h3>Daihatsu Emergency App</h3>
+        <p>Safety app using Bluetooth Low Energy and iBeacon for location-aware emergency alerts.</p>
+        <div class="tags"><span class="tag">BLE</span><span class="tag">iBeacon</span></div>
+      </div>
+      <div class="project">
+        <div class="icon">✉</div>
+        <h3>WhatsWave</h3>
+        <p>Personal messaging app project built with Flutter to explore cross-platform development.</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Side project</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="label">Contact</div>
+    <h2>Let's build something together.</h2>
+    <p>I'm looking for a senior iOS role in Japan and can start immediately. Reach out — I reply quickly.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/jaydev6228">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer class="mono">© 2026 Jaydev · Tsukuba, Japan</footer>
+
+</body>
+</html>
