@@ -160,6 +160,7 @@
   .project p { color: var(--muted); font-size: 14.5px; flex: 1; }
   .project .link { font-size: 13.5px; font-weight: 600; color: var(--accent); text-decoration: none; }
   .project .link:hover { text-decoration: underline; }
+  .project .note { font-size: 13px; color: var(--muted); display: flex; gap: 6px; align-items: baseline; }
 
   /* Skills */
   .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
@@ -433,9 +434,10 @@
 
       <div class="project" data-c="personal">
         <div class="top"><div class="icon">✉</div><div class="ind">個人開発</div></div>
-        <h3>メッセージングアプリ</h3>
-        <p>1対1・グループチャット、音声／ビデオ通話、ストーリー、メディア共有。1つのコードでiOS・Android対応。</p>
+        <h3>WhatsWave</h3>
+        <p>メッセージングアプリ。1対1・グループチャット、音声／ビデオ通話、ストーリー、メディア共有。1つのコードでiOS・Android対応。</p>
         <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">LiveKit</span></div>
+        <a class="link" href="https://github.com/jaydev6228/whatswave-flutter" target="_blank" rel="noopener">GitHubで見る ↗</a>
       </div>
 
       <div class="project" data-c="personal">
@@ -443,6 +445,7 @@
         <h3>AIリサーチエージェント</h3>
         <p>Claude APIを利用したPythonの定期実行エージェント。Web検索で調査し、状態を保持してレポートを作成。</p>
         <div class="tags"><span class="tag">Python</span><span class="tag">Claude API</span><span class="tag">MCP</span></div>
+        <span class="note"><span aria-hidden="true">🔒</span> 非公開リポジトリ（面接時にご説明可能です）</span>
       </div>
 
     </div>
