@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ジェイデフ・バロリヤ｜シニアiOSエンジニア（Jaydev Baloliya）</title>
+<meta name="description" content="シニアiOSエンジニア ジェイデフ・バロリヤのポートフォリオ。iOS開発経験10年以上。楽天家計簿、JERA・Right-On向け業務アプリなど、要件定義からリリースまで一貫して担当。即日勤務可能。">
+<meta property="og:title" content="ジェイデフ・バロリヤ｜シニアiOSエンジニア">
+<meta property="og:description" content="iOS開発経験10年以上。要件定義からリリースまで一貫して担当。茨城県つくば市在住、即日勤務可能。">
+<meta property="og:url" content="https://jaydev6228.github.io/ja/">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="en" href="https://jaydev6228.github.io/">
+<link rel="alternate" hreflang="ja" href="https://jaydev6228.github.io/ja/">
+<link rel="alternate" hreflang="x-default" href="https://jaydev6228.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f7f5;
+    --surface: #ffffff;
+    --text: #16181d;
+    --muted: #5b6270;
+    --line: #e4e4e0;
+    --accent: #ff5a1f;
+    --accent-soft: #fff0e9;
+    --good: #16a34a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --surface: #171a21;
+      --text: #eef0f4;
+      --muted: #9aa2b1;
+      --line: #262a33;
+      --accent: #ff7a45;
+      --accent-soft: #2a1a12;
+      --good: #22c55e;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+  nav .logo { font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+  nav .logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 22px; list-style: none; font-size: 14px; }
+  nav ul a { text-decoration: none; color: var(--muted); }
+  nav ul a:hover { color: var(--text); }
+  @media (max-width: 640px) { nav ul { display: none; } }
+  .navr { display: flex; align-items: center; gap: 22px; }
+  .lang { display: flex; border: 1px solid var(--line); border-radius: 99px; padding: 3px; background: var(--surface); }
+  .lang a {
+    font-size: 12.5px; font-weight: 600; text-decoration: none; color: var(--muted);
+    padding: 4px 11px; border-radius: 99px; line-height: 1.4;
+  }
+  .lang a[aria-current="page"] { background: var(--text); color: var(--bg); }
+
+  /* Hero */
+  .hero { padding-top: 88px; padding-bottom: 64px; }
+  .nb { display: inline-block; }
+  .status {
+    display: inline-flex; flex-wrap: wrap; column-gap: 4px; align-items: center; gap: 8px; font-size: 13px;
+    padding: 6px 12px; border-radius: 99px; background: var(--accent-soft);
+    color: var(--accent); font-weight: 500;
+  }
+  .status::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--good);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 25%, transparent);
+  }
+  .hero h1 {
+    font-size: clamp(38px, 7vw, 66px); line-height: 1.04; letter-spacing: -0.035em;
+    margin: 22px 0 18px; font-weight: 800;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p.lead { font-size: 19px; color: var(--muted); max-width: 660px; }
+  .hero p.lead b { color: var(--text); font-weight: 600; }
+  .hero p.lead a { color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+  .btn {
+    display: inline-block; padding: 11px 18px; border-radius: 10px; text-decoration: none;
+    font-weight: 600; font-size: 14.5px; border: 1px solid var(--line); background: var(--surface);
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); border-color: var(--muted); }
+  .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 52px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+  .stat b { display: block; font-size: 30px; letter-spacing: -0.03em; line-height: 1.2; }
+  .stat b i { font-style: normal; color: var(--accent); }
+  .stat small { color: var(--muted); font-size: 13px; }
+  @media (max-width: 720px) { .stats { grid-template-columns: 1fr 1fr; } }
+
+  .industries { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .industries span.k { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-right: 4px; }
+
+  /* Sections */
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .label { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  h2 { font-size: 32px; letter-spacing: -0.025em; margin: 8px 0 28px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 12.5px; padding: 4px 10px; border-radius: 6px; background: var(--bg); border: 1px solid var(--line); }
+  .industries .tag { background: var(--surface); }
+
+  /* Strengths */
+  .strengths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .strength { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .strength .n { font-size: 13px; color: var(--accent); font-weight: 600; }
+  .strength h3 { font-size: 18px; margin: 6px 0 8px; letter-spacing: -0.01em; }
+  .strength p { color: var(--muted); font-size: 14.5px; }
+  @media (max-width: 760px) { .strengths { grid-template-columns: 1fr; } }
+
+  /* Timeline */
+  .job { display: grid; grid-template-columns: 170px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px dashed var(--line); }
+  .job:last-child { border-bottom: 0; }
+  .job .when { color: var(--muted); font-size: 13px; padding-top: 3px; }
+  .job h3 { font-size: 18px; letter-spacing: -0.01em; }
+  .job .org { color: var(--muted); font-size: 14px; margin-bottom: 10px; }
+  .job ul { padding-left: 18px; color: var(--muted); font-size: 15px; margin-bottom: 12px; }
+  .job li { margin: 5px 0; }
+  .job li b { color: var(--text); font-weight: 600; }
+  @media (max-width: 640px) { .job { grid-template-columns: 1fr; gap: 4px; } }
+
+  /* Work */
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: -8px 0 22px; }
+  .filters button {
+    font: inherit; font-size: 13.5px; padding: 7px 14px; border-radius: 99px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--surface); color: var(--muted);
+  }
+  .filters button.on { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .project {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px;
+    display: flex; flex-direction: column; gap: 10px; transition: border-color .15s ease;
+  }
+  .project:hover { border-color: var(--muted); }
+  .project.hide { display: none; }
+  .project .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .project .icon {
+    width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center;
+    background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 18px; flex: none;
+  }
+  .project .ind { font-size: 12px; color: var(--muted); text-align: right; }
+  .project h3 { font-size: 17px; letter-spacing: -0.01em; }
+  .project p { color: var(--muted); font-size: 14.5px; flex: 1; }
+  .project .link { font-size: 13.5px; font-weight: 600; color: var(--accent); text-decoration: none; }
+  .project .link:hover { text-decoration: underline; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .skill-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .skill-card h3 { font-size: 15px; margin-bottom: 12px; }
+
+  /* Contact */
+  .contact { text-align: center; padding: 80px 0; }
+  .contact h2 { font-size: clamp(28px, 5vw, 42px); }
+  .contact p { color: var(--muted); max-width: 560px; margin: 0 auto 28px; }
+  .contact .cta { justify-content: center; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 28px 0 40px; }
+
+  /* Japanese typography */
+  body { font-family: Inter, "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; line-height: 1.85; }
+  .hero h1 { letter-spacing: 0; line-height: 1.25; font-size: clamp(26px, 5.6vw, 54px); }
+  h2, .strength h3, .job h3, .project h3 { letter-spacing: 0; }
+  .hero p.lead { font-size: 17px; line-height: 1.95; }
+  .stat b i.u { font-size: 15px; font-weight: 700; margin-left: 3px; }
+  .job ul, .project p, .strength p { line-height: 1.85; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="logo">Jaydev <span>Baloliya</span></a>
+    <div class="navr">
+      <ul>
+        <li><a href="#strengths">強み</a></li>
+        <li><a href="#experience">職務経歴</a></li>
+        <li><a href="#work">実績</a></li>
+        <li><a href="#skills">スキル</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+      <div class="lang" role="group" aria-label="言語">
+        <a href="../" hreflang="en" lang="en" class="sw">EN</a>
+        <a href="./" hreflang="ja" lang="ja" aria-current="page">日本語</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <span class="status"><span class="nb">即日勤務可能 ・</span> <span class="nb">正社員希望 ・</span> <span class="nb">茨城県つくば市在住</span></span>
+  <h1><span class="nb">シニアiOSエンジニア。</span><br><span class="nb">要件定義から</span><span class="nb">リリースまで、</span><br><em class="nb">一貫して担当します。</em></h1>
+  <p class="lead">ジェイデフ・バロリヤ（Jaydev Baloliya）と申します。Swift / UIKit / SwiftUI を中心に、<b>10年以上</b>iOSアプリ開発に携わってまいりました。利用者数<b>数百万人規模の「楽天家計簿」</b>をはじめ、<b>JERA</b>（電力）向け業務アプリ、<b>Right-On</b>（アパレル）向け在庫管理アプリ、<b>ダイハツ</b>向け安全運転機能などを開発。日本の開発チームで6年間、日本語・英語の両方で業務を行ってまいりました。<b>即日勤務が可能です。</b>お気軽に<a href="#contact">ご連絡ください</a>。</p>
+  <div class="cta">
+    <a class="btn primary" href="#contact">お問い合わせ</a>
+    <a class="btn" href="#experience">職務経歴を見る</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>10<i class="u">年以上</i></b><small>iOSアプリ開発経験</small></div>
+    <div class="stat"><b>20<i class="u">本以上</i></b><small>開発に携わったアプリ</small></div>
+    <div class="stat"><b>75<i class="u">%改善</i></b><small>APIレスポンス（8秒→2秒）</small></div>
+    <div class="stat"><b>20<i class="u">%削減</i></b><small>クラッシュ率（6ヶ月）</small></div>
+  </div>
+  <div class="industries">
+    <span class="k">業界経験</span>
+    <span class="tag">フィンテック</span><span class="tag">電力・エネルギー</span><span class="tag">小売・アパレル</span><span class="tag">自動車</span><span class="tag">人事・経費精算</span><span class="tag">航空訓練</span><span class="tag">旅行</span><span class="tag">IoT</span><span class="tag">教育</span>
+  </div>
+</header>
+
+<section id="strengths">
+  <div class="wrap">
+    <div class="label">Strengths</div>
+    <h2>私の強み</h2>
+    <div class="strengths">
+      <div class="strength">
+        <div class="n mono">01</div>
+        <h3>一貫した開発対応</h3>
+        <p>要件定義、ワイヤーフレーム・画面仕様書の作成から、設計・開発・テスト・TestFlight / App Storeリリース、保守まで一貫して担当できます。</p>
+      </div>
+      <div class="strength">
+        <div class="n mono">02</div>
+        <h3>チームリード経験</h3>
+        <p>VeBuInではiOS・バックエンド・QAを含む8名体制でリードを兼任。楽天ではリード不在の約6ヶ月間、要件定義からリリース管理までを代行し、遅延なく開発を継続しました。</p>
+      </div>
+      <div class="strength">
+        <div class="n mono">03</div>
+        <h3>定量的な成果</h3>
+        <p>クラッシュ率20%削減、APIレスポンス75%改善（8秒→2秒）、運用コスト25%削減。技術だけでなく、ビジネスへの具体的な貢献を重視しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="label">Career</div>
+    <h2>職務経歴・学歴</h2>
+
+    <div class="job">
+      <div class="when mono">2023年9月 — 2026年8月</div>
+      <div>
+        <h3>シニアiOSエンジニア</h3>
+        <div class="org">楽天グループ株式会社（ランドスタッド・ジャパン株式会社より派遣）・楽天家計簿・iOS 4名体制</div>
+        <ul>
+          <li>個人向け家計管理アプリ（<b>利用者数 数百万人規模</b>）の機能開発・保守。UI/UX設計、設計、開発、テスト、リリースを担当。</li>
+          <li><b>リード不在期間（約6ヶ月）に、要件定義・見積もり・スプリント計画・QA対応・リリース管理を代行</b>し、リリース遅延なく開発を継続。</li>
+          <li>金融機関口座・カード情報の連携、同期失敗やデータ欠損など例外系の実装。</li>
+          <li>ディープリンク・分析機能（Firebase / Adjust）の統合、Instrumentsを用いたパフォーマンス改善。</li>
+          <li>コードレビューとメンタリングによるチーム品質の向上、AIツール活用による開発効率化。</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">UIKit</span><span class="tag">SwiftUI</span><span class="tag">Combine</span><span class="tag">MVVM</span><span class="tag">Clean Architecture</span><span class="tag">XCTest</span><span class="tag">Bitrise</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">2021年4月 — 2023年8月</div>
+      <div>
+        <h3>シニアiOSエンジニア／チームリード</h3>
+        <div class="org">VeBuIn株式会社・JERA（電力）向け・客先常駐・8名体制</div>
+        <ul>
+          <li>入退場管理・発電所タスク管理・設備保守管理など、<b>業務用iOSアプリ群</b>の開発を担当。</li>
+          <li><b>バックエンド・QAチームのリードを兼任</b>。ジュニアエンジニアのタスク管理、顧客との要件定義・打ち合わせを担当。</li>
+          <li>メモリプロファイリング・リーク修正・テスト追加により、<b>6ヶ月でクラッシュ率を約20%削減</b>。</li>
+          <li>Ruby on RailsによるAPI改善とキャッシュ導入で、<b>レスポンスを8秒から2秒に短縮（75%改善）</b>。</li>
+          <li>Microsoft AzureでのCI/CDパイプライン構築、CocoaPodsによる社内ライブラリ開発でモジュール化を推進。ワイヤーフレーム・画面仕様書・ユーザーマニュアルも作成。</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">MVVM</span><span class="tag">Ruby on Rails</span><span class="tag">PostgreSQL</span><span class="tag">Azure DevOps</span><span class="tag">Fastlane</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">2020年2月 — 2021年3月</div>
+      <div>
+        <h3>シニアiOSエンジニア</h3>
+        <div class="org">VeBuIn株式会社・Right-On（アパレル）向け・客先常駐</div>
+        <ul>
+          <li>ThinkBiz Technologyのグループ会社であるVeBuIn株式会社へ転籍し、来日。</li>
+          <li>店舗スタッフが商品のQRコードを読み取り、各店舗の在庫を検索できる<b>iPhone / iPad対応の在庫管理アプリ</b>を開発。</li>
+          <li>Ruby on Railsで賃貸契約管理モジュールを開発。</li>
+          <li>在庫管理BIツールの開発により<b>運用コストを25%削減</b>。スケジュール通りに納品。</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">iPad</span><span class="tag">QRコード</span><span class="tag">Ruby on Rails</span><span class="tag">VBA</span><span class="tag">Google Apps Script</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">2018年12月 — 2020年2月</div>
+      <div>
+        <h3>iOSエンジニア</h3>
+        <div class="org">ThinkBiz Technology Pvt Ltd（インド・アーメダバード）・日本企業向け製品開発</div>
+        <ul>
+          <li><b>ダイハツ向けドライブアプリ</b>：iBeaconを活用し、運転中の位置情報・心拍データを取得。緊急時には<b>音声操作で緊急連絡</b>ができる機能を実装。</li>
+          <li><b>SmartFlow</b>（人事ワークフロー・経費精算アプリ）を開発し、<b>手作業を50%削減</b>。App Storeにて公開。</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">BLE</span><span class="tag">iBeacon</span><span class="tag">音声認識</span><span class="tag">iCloud</span><span class="tag">Core Data</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">2017年2月 — 2018年12月</div>
+      <div>
+        <h3>iOSエンジニア</h3>
+        <div class="org">WebPixel Technologies Pvt Ltd（インド・アーメダバード）</div>
+        <ul>
+          <li>要件定義からApp Storeリリースまで、<b>5本のアプリ</b>を担当。</li>
+          <li><b>CrewDox</b>：通信環境が不安定な地域でも利用できる、オフライン優先設計の訓練・コンプライアンス管理アプリ。</li>
+          <li>旅行・予約系アプリで<b>累計5万ダウンロード以上</b>を達成。アーティスト予約（チャット機能付き）、QRポイントアプリも開発。</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SQLite</span><span class="tag">オフライン優先</span><span class="tag">Firebase</span><span class="tag">REST API</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">2015年12月 — 2017年2月</div>
+      <div>
+        <h3>iOSエンジニア</h3>
+        <div class="org">SMN Digital Consultancy Pvt Ltd（インド・アーメダバード）</div>
+        <ul>
+          <li><b>Smart G4 ホームオートメーションアプリ</b>：iPhoneから照明・空調・メディア機器をUDP通信・赤外線で遠隔制御。</li>
+          <li>小学生向け教育アプリ（6本以上）を開発。全案件スケジュール通りに納品。</li>
+        </ul>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">UDPソケット</span><span class="tag">赤外線</span><span class="tag">IoT</span><span class="tag">アニメーション</span></div>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="when mono">2009年 — 2012年</div>
+      <div>
+        <h3>学歴</h3>
+        <div class="org">グジャラート工科大学（インド）卒業・Bachelor of Computer Applications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="label">Projects</div>
+    <h2>主なプロジェクト</h2>
+    <div class="filters" role="group" aria-label="プロジェクトの絞り込み">
+      <button class="on" data-f="all">すべて</button>
+      <button data-f="client">企業案件</button>
+      <button data-f="store">App Store公開中</button>
+      <button data-f="personal">個人開発</button>
+    </div>
+    <div class="projects">
+
+      <div class="project" data-c="client">
+        <div class="top"><div class="icon">¥</div><div class="ind">フィンテック・楽天</div></div>
+        <h3>楽天家計簿</h3>
+        <p>利用者数 数百万人規模の家計管理アプリ。口座・カード連携、予算管理、グラフ、大量データの一覧表示。</p>
+        <div class="tags"><span class="tag">UIKit</span><span class="tag">SwiftUI</span><span class="tag">Combine</span></div>
+      </div>
+
+      <div class="project" data-c="client">
+        <div class="top"><div class="icon">⚡</div><div class="ind">電力・JERA</div></div>
+        <h3>発電所向け業務アプリ群</h3>
+        <p>入退場管理・タスク管理・設備保守管理アプリ。iOS・バックエンド・QAのリードを兼任。</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">Rails</span><span class="tag">Azure DevOps</span></div>
+      </div>
+
+      <div class="project" data-c="client">
+        <div class="top"><div class="icon">▦</div><div class="ind">アパレル・Right-On</div></div>
+        <h3>店舗在庫管理アプリ</h3>
+        <p>QRコードで各店舗の在庫を検索できるiPhone / iPadアプリ。BIツールで運用コスト25%削減。</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">iPad</span><span class="tag">QR</span></div>
+      </div>
+
+      <div class="project" data-c="client">
+        <div class="top"><div class="icon">⌁</div><div class="ind">自動車・ダイハツ</div></div>
+        <h3>安全運転支援機能</h3>
+        <p>iBeaconで運転中の位置・心拍を取得し、緊急時は音声操作で緊急連絡が可能。</p>
+        <div class="tags"><span class="tag">BLE</span><span class="tag">iBeacon</span><span class="tag">音声</span></div>
+      </div>
+
+      <div class="project" data-c="store">
+        <div class="top"><div class="icon">✓</div><div class="ind">人事・経費精算</div></div>
+        <h3>SmartFlow（現：Jugaad）</h3>
+        <p>ワークフロー・交通費精算・請求書管理アプリ。社内文書の電子化で手作業を50%削減。</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">iCloud</span></div>
+        <a class="link" href="https://apps.apple.com/jp/app/smartflow/id1469206172" target="_blank" rel="noopener">App Storeで見る ↗</a>
+      </div>
+
+      <div class="project" data-c="store">
+        <div class="top"><div class="icon">✈</div><div class="ind">航空訓練</div></div>
+        <h3>CrewDox</h3>
+        <p>トレーナー向けのフォーム入力・出欠・訓練記録アプリ。オフライン優先設計で遠隔地でも利用可能。</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">SQLite</span><span class="tag">オフライン同期</span></div>
+        <a class="link" href="https://apps.apple.com/us/app/crewdox-3-0/id1242775664" target="_blank" rel="noopener">App Storeで見る ↗</a>
+      </div>
+
+      <div class="project" data-c="store">
+        <div class="top"><div class="icon">⌂</div><div class="ind">IoT・スマートホーム</div></div>
+        <h3>Smart G4 ホームオートメーション</h3>
+        <p>照明・調光・テレビ・オーディオ・空調をiPhoneから制御。UDPソケットと赤外線プロトコルを使用。</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">UDP</span><span class="tag">赤外線</span></div>
+        <a class="link" href="https://apps.apple.com/jp/app/smart-g4-home-automationbus-hd/id1149692959" target="_blank" rel="noopener">App Storeで見る ↗</a>
+      </div>
+
+      <div class="project" data-c="store">
+        <div class="top"><div class="icon">✎</div><div class="ind">教育</div></div>
+        <h3>子ども向け学習アプリ</h3>
+        <p>Consonants（グジャラート語の文字学習・書き取り練習）、Primary Math（足し算・引き算とゲーム）。</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">アニメーション</span></div>
+        <a class="link" href="https://apps.apple.com/us/app/consonants/id1148988968" target="_blank" rel="noopener">Consonants ↗</a>
+        <a class="link" href="https://apps.apple.com/us/app/primary-math/id1149238798" target="_blank" rel="noopener">Primary Math ↗</a>
+      </div>
+
+      <div class="project" data-c="client">
+        <div class="top"><div class="icon">♪</div><div class="ind">旅行・エンタメ</div></div>
+        <h3>予約・ポイントアプリ</h3>
+        <p>累計5万DL以上の旅行予約アプリ、Book with Me（アーティスト予約・チャット）、RAYBACK（QRポイント）。</p>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">Firebase</span><span class="tag">QR</span></div>
+      </div>
+
+      <div class="project" data-c="personal">
+        <div class="top"><div class="icon">✉</div><div class="ind">個人開発</div></div>
+        <h3>メッセージングアプリ</h3>
+        <p>1対1・グループチャット、音声／ビデオ通話、ストーリー、メディア共有。1つのコードでiOS・Android対応。</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">LiveKit</span></div>
+      </div>
+
+      <div class="project" data-c="personal">
+        <div class="top"><div class="icon">◎</div><div class="ind">個人開発</div></div>
+        <h3>AIリサーチエージェント</h3>
+        <p>Claude APIを利用したPythonの定期実行エージェント。Web検索で調査し、状態を保持してレポートを作成。</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Claude API</span><span class="tag">MCP</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="label">Skills</div>
+    <h2>技術スキル・語学</h2>
+    <div class="skills">
+      <div class="skill-card">
+        <h3>iOS</h3>
+        <div class="tags"><span class="tag">Swift</span><span class="tag">Objective-C</span><span class="tag">UIKit</span><span class="tag">SwiftUI</span><span class="tag">Combine</span><span class="tag">async/await</span><span class="tag">GCD</span><span class="tag">Core Data</span><span class="tag">SQLite</span><span class="tag">プッシュ通知</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>アーキテクチャ・品質</h3>
+        <div class="tags"><span class="tag">MVVM</span><span class="tag">Clean Architecture</span><span class="tag">MVC</span><span class="tag">プロトコル指向</span><span class="tag">CocoaPods社内ライブラリ</span><span class="tag">オフライン優先</span><span class="tag">XCTest</span><span class="tag">Instruments</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>CI/CD・リリース</h3>
+        <div class="tags"><span class="tag">Bitrise</span><span class="tag">Fastlane</span><span class="tag">Azure DevOps</span><span class="tag">App Store Connect</span><span class="tag">TestFlight</span><span class="tag">Enterprise / Ad Hoc配布</span><span class="tag">GitHub</span><span class="tag">Bitbucket</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>バックエンド・データ</h3>
+        <div class="tags"><span class="tag">Ruby on Rails</span><span class="tag">REST API</span><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">Firebase</span><span class="tag">Adjust</span><span class="tag">VBA / BIツール</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>デバイス・通信</h3>
+        <div class="tags"><span class="tag">Core Bluetooth</span><span class="tag">BLE</span><span class="tag">iBeacon</span><span class="tag">UDPソケット</span><span class="tag">赤外線</span><span class="tag">QRコード</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>その他・学習中</h3>
+        <div class="tags"><span class="tag">Flutter / Dart（個人開発）</span><span class="tag">Kotlin（学習中）</span><span class="tag">Python</span><span class="tag">Claude API</span><span class="tag">MCP</span><span class="tag">アジャイル / スクラム</span></div>
+      </div>
+      <div class="skill-card">
+        <h3>語学・資格</h3>
+        <div class="tags"><span class="tag">日本語：日常会話レベル（業務で使用）</span><span class="tag">JLPT N4 合格</span><span class="tag">N3 学習中</span><span class="tag">英語：ビジネスレベル</span><span class="tag">ヒンディー語・グジャラート語：母国語</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="label">Contact</div>
+    <h2>お気軽にご連絡ください。</h2>
+    <p>正社員のiOSエンジニア職を希望しております。前職の契約は2026年8月末に満了しており、即日勤務が可能です。履歴書・職務経歴書はご依頼いただければお送りいたします。</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:jaydevbaloliya@gmail.com?subject=%E3%80%90%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA%E3%82%88%E3%82%8A%E3%80%91%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">jaydevbaloliya@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/jaydevbaloliya">LinkedIn</a>
+      <a class="btn" href="https://github.com/jaydev6228">GitHub</a>
+      <a class="btn" href="../docs/Jaydev_Baloliya_Resume.pdf">英文レジュメ（PDF）</a>
+    </div>
+  </div>
+</section>
+
+<footer class="mono">© 2026 Jaydev Baloliya（ジェイデフ・バロリヤ）・茨城県つくば市</footer>
+
+<script>
+  document.querySelectorAll('.lang a.sw').forEach(function (a) {
+    a.addEventListener('click', function () { if (location.hash) a.href = a.getAttribute('href') + location.hash; });
+  });
+  document.querySelectorAll('.filters button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.filters button').forEach(function (b) { b.classList.remove('on'); });
+      btn.classList.add('on');
+      var f = btn.getAttribute('data-f');
+      document.querySelectorAll('.project').forEach(function (p) {
+        p.classList.toggle('hide', f !== 'all' && p.getAttribute('data-c') !== f);
+      });
+    });
+  });
+</script>
+</body>
+</html>
